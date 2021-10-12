@@ -1,0 +1,167 @@
+<html>
+
+<head>
+  <!-- <meta charset="UTF-8" /> -->
+  <title>Digital Signal Visualizer</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #03C6C7;
+      font-family: 'JetBrains Mono', monospace
+    }
+
+    h4 {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 35px;
+      margin-bottom: 35px;
+      color: #ffff
+    }
+
+    #title {
+      color: rgb(255, 240, 240);
+      border: 1px solid rgb(255, 255, 255)
+    }
+
+    canvas {
+      margin-bottom: 1%;
+      background-color: #ffff
+    }
+
+    .contained{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1%;
+      padding: 10px;
+    }
+
+    select {
+      width: 30%;
+      height: 10%;
+      height: 50px;
+      font-size: 1em;
+      font-family: 'JetBrains Mono', monospace;
+      color: grey
+    }
+
+    #binary {
+      width: 50%;
+      font-size: 20px;
+      font-family: 'JetBrains Mono', monospace
+    }
+
+    .btn-submit {
+      border: 1px solid #E03B8B;
+      padding: 8px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 7px;
+      margin-left: 5px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      background-color: #E03B8B;
+      color: #ffff
+    }
+
+    .btn-submit:active {
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0)
+    }
+
+    .collapsible {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 2px 0 2px 2px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #555
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1
+    }
+
+    ol {
+      list-style-type: none;
+      line-height: 200%
+    }
+
+    .footer {
+      margin-top: 3em;
+      text-align: center
+    }
+  </style>
+</head>
+
+<body>
+  <h4>DIGITAL SIGNAL VISUALIZER</h4>
+  <h4 id='title'>
+    </h6>
+    <div class="contained">
+      <div class="container">
+        <select id="options">
+          <option value="uniPolarNRZ">Unipolar NRZ</option>
+          <option value="NRZL">NRZ - L</option>
+          <option value="NRZI">NRZ - I</option>
+          <option value="AMI">Bi polar AMI</option>
+          <option value="PST">Pseudoternary</option>
+          <option value="MLT3">MLT-3</option>
+          <option value="diffMan">Differential Manchester</option>
+          <option value="MAN">Manchester</option>
+          <option value="B8ZS">B8ZS</option>
+          <option value="HDB3">HDB3</option>
+        </select><br>
+      </div>
+      <div class="container">
+        <input type="text" id="binary" placeholder="Enter Binary Value"><br><br>
+        <input class="btn-submit" id="button" type="submit" value="Submit"><br><br>
+      </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <button type="button" class="collapsible"><span id='arrow' class="fas fa-caret-right" aria-hidden="true"></span>
+      <span style="font-size: larger;">Read More</span> </button>
+    <div class="content">
+      <ol id="ordered-list">
+        <li class="section"><span>Non-return-to-zero(NRZ) : </span><a
+            href="https://en.wikipedia.org/wiki/Non-return-to-zero" target="_blank"
+            rel="noopener noreferrer">https://en.wikipedia.org/wiki/Non-return-to-zero</a><br><br></li>
+        <li class="section"><span>Bipolar encoding : </span><a href="https://en.wikipedia.org/wiki/Bipolar_encoding"
+            target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bipolar_encoding</a><br><br></li>
+        <li class="section"><span>Differential Manchester encoding : </span><a
+            href="https://en.wikipedia.org/wiki/Differential_Manchester_encoding" target="_blank"
+            rel="noopener noreferrer">https://en.wikipedia.org/wiki/Differential_Manchester_encoding</a><br><br></li>
+        <li class="section"><span>Manchester code : </span><a href="https://en.wikipedia.org/wiki/Manchester_code"
+            target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Manchester_code</a><br><br></li>
+      </ol>
+    </div>
+    <div class="footer"><span><a style="color: white;" href="https://github.com/nur-zaman/digital-signal-visualizer"
+          target="_blank" rel="noopener noreferrer">Github</a></span></div>
+</body>
+
+</html>
