@@ -1,46 +1,63 @@
 <html>
-
 <head>
   <title>Digital Signal Visualizer</title>
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       background-color: #03C6C7;
-      font-family: 'JetBrains Mono', monospace
+      font-family: 'JetBrains Mono', monospace;
+      background: url("https://resources.workable.com/wp-content/uploads/2020/10/Effective-workplace-communication-01.png") no-repeat center center fixed;
+      background-size: cover;
+    
     }
 
     h4 {
-      font-size: 2rem;
+      font-size: 3rem;
       text-align: center;
       margin-top: 35px;
       margin-bottom: 35px;
-      color: #ffff
+      color: #ffff;
+      font-weight: bold;
+	    text-shadow: 0 0 5px rgb(12, 143, 225), 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     #title {
       color: rgb(255, 240, 240);
-      border: 1px solid rgb(255, 255, 255)
     }
 
     canvas {
-      margin-bottom: 1%;
-      background-color: #ffff
+      margin: 1%;
+      background-color: #A2D2FF;
+      width: 78vw;
+      height: 44vh;
+      margin-left: 10vw;
     }
 
     .contained{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      background-repeat: no-repeat;
+      justify-content: center;
+      margin-left: 10vw;
+      margin-right: 10vw;
+      border-radius: 18px;
+    }
+    .video {
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
     }
 
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 1%;
       padding: 10px;
     }
 
@@ -54,24 +71,21 @@
     }
 
     #binary {
-      width: 50%;
+      width: 60%;
       font-size: 20px;
-      font-family: 'JetBrains Mono', monospace
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .btn-submit {
-      border: 1px solid #E03B8B;
+      border: none;
       padding: 8px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 7px;
-      margin-left: 5px;
+      font-size: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      border-radius: 8px;
       transition-duration: 0.4s;
-      cursor: pointer;
       background-color: #E03B8B;
-      color: #ffff
+      color: #ffff;
+      margin-left: 5px;
     }
 
     .btn-submit:active {
@@ -81,20 +95,23 @@
 
     .collapsible {
       font-family: 'JetBrains Mono', monospace;
-      background-color: #777;
+      background-color: #0073e6;
       color: white;
-      cursor: pointer;
-      padding: 2px 0 2px 2px;
-      width: 100%;
+      padding: 8px 0 8px 2px;
+      width: 200px;
       border: none;
-      text-align: left;
+      background-color: #0073e6;
+      border-radius:12px;
+      font-weight: bold;
+      text-align: center;
       outline: none;
-      font-size: 15px
+      font-size: 15px;
+      margin: 10px 20px 20px 20px;
     }
 
     .active,
     .collapsible:hover {
-      background-color: #555
+      background-color: #E03B8B;
     }
 
     .content {
@@ -107,7 +124,8 @@
 
     ol {
       list-style-type: none;
-      line-height: 200%
+      line-height: 200%;
+      background-color: #353382;
     }
 
     .footer {
@@ -124,7 +142,7 @@
     <div class="contained">
       <div class="container">
         <select id="options">
-          <option value="uniPolarNRZ">Unipolar NRZ</option>
+          <option value="uniPolarNRZ">UNIpolar NRZ</option>
           <option value="NRZL">NRZ - L</option>
           <option value="NRZI">NRZ - I</option>
           <option value="AMI">Bi polar AMI</option>
@@ -143,24 +161,23 @@
     </div>
 
     <canvas id="canvas"></canvas>
-    <button type="button" class="collapsible"><span id='arrow' class="fas fa-caret-right" aria-hidden="true"></span>
-      <span style="font-size: larger;">Read More</span> </button>
+  </br>
+    
+    <button type="button" class="collapsible">
+      <span id='arrow' class="fas fa-caret-right" aria-hidden="true"></span>
+      <span style="font-size: larger;">Useful Links</span> 
+    </button>
     <div class="content">
       <ol id="ordered-list">
-        <li class="section"><span>Non-return-to-zero(NRZ) : </span><a
-            href="https://en.wikipedia.org/wiki/Non-return-to-zero" target="_blank"
-            rel="noopener noreferrer">https://en.wikipedia.org/wiki/Non-return-to-zero</a><br><br></li>
-        <li class="section"><span>Bipolar encoding : </span><a href="https://en.wikipedia.org/wiki/Bipolar_encoding"
-            target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bipolar_encoding</a><br><br></li>
-        <li class="section"><span>Differential Manchester encoding : </span><a
-            href="https://en.wikipedia.org/wiki/Differential_Manchester_encoding" target="_blank"
-            rel="noopener noreferrer">https://en.wikipedia.org/wiki/Differential_Manchester_encoding</a><br><br></li>
-        <li class="section"><span>Manchester code : </span><a href="https://en.wikipedia.org/wiki/Manchester_code"
-            target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Manchester_code</a><br><br></li>
+        <div class="container">
+          <iframe class="video" width="400" height="315" src="https://www.youtube.com/embed/W8TzM1S4UQ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+          <iframe class="video" width="400" height="315" src="https://www.youtube.com/embed/oJ2iDaTv49E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+          <iframe class="video" width="400" height="315" src="https://www.youtube.com/embed/O9gWkLz8eZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </ol>
     </div>
-    <div class="footer"><span><a style="color: white;" href="https://github.com/nur-zaman/digital-signal-visualizer"
-          target="_blank" rel="noopener noreferrer">Github</a></span></div>
-</body>
 
+</body>
 </html>
