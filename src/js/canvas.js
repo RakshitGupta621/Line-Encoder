@@ -1,4 +1,4 @@
-import utils, { getInputValue, randomIntFromRange } from './utils'
+import utils, { getInputValue, randomIntFromRange,getText } from './utils'
 import formulas, {selectMethod} from './formulas'
 import "./styles.css";
 
@@ -49,6 +49,11 @@ coll[0].addEventListener("click", function () {
 
 document.getElementById('button').onclick =()=> {  
 BINARY =  getInputValue()
+if(!BINARY){
+ BINARY=getText();
+}
+
+
 document.getElementById('title').innerHTML = document.getElementById("options").options[document.getElementById("options").selectedIndex].text;
 method = document.getElementById("options").value
 if((/^[0-1]/.test(BINARY))){
