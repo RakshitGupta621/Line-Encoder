@@ -15,8 +15,17 @@ function distance(x1, y1, x2, y2) {
 
 function getInputValue(){
   let binary = document.querySelector("#binary").value
-  console.log(binary)
   return binary
-  }
+}
 
-module.exports = { randomIntFromRange, randomColor, distance , getInputValue}
+function getText(){
+     var x = document.getElementById("ctext").value;
+     var pp=""
+     for(var i=0;i<x;i++){
+          pp+=(Math.floor(Math.random()*2));
+     }
+    return pp;    
+}
+
+module.exports = { randomIntFromRange, randomColor, distance , getInputValue, getText}
+
