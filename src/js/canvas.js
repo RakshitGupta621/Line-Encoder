@@ -1,4 +1,4 @@
-import utils, { getInputValue, randomIntFromRange,getText } from './utils'
+import utils, { getInputValue, randomIntFromRange, getText } from './utils'
 import formulas, {selectMethod} from './formulas'
 import "./styles.css";
 
