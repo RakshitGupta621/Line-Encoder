@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <title>Line Encoder & Scrambler</title>
   <link rel="stylesheet" type="text/css"
@@ -13,7 +14,7 @@
       font-family: 'JetBrains Mono', monospace;
       background: url("https://resources.workable.com/wp-content/uploads/2020/10/Effective-workplace-communication-01.png") no-repeat center center fixed;
       background-size: cover;
-    
+
     }
 
     h4 {
@@ -23,9 +24,10 @@
       margin-bottom: 35px;
       color: #ffff;
       font-weight: bold;
-	    text-shadow: 0 0 5px rgb(12, 143, 225), 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+      text-shadow: 0 0 5px rgb(12, 143, 225), 0 0 7px #fff, 0 0 15px #0073e6, 0 0 7px #0073e6, 0 0 7px #0073e6, 0 0 30px #0073e6, 0 0 5px #0073e6;
       font-family: 'JetBrains Mono', monospace;
     }
+
 
     #title {
       color: rgb(255, 240, 240);
@@ -39,26 +41,44 @@
       margin-left: 10vw;
     }
 
-    .contained{
-      display: flex;
-      flex-direction: column;
-      background-repeat: no-repeat;
-      justify-content: center;
-      margin-left: 10vw;
-      margin-right: 10vw;
-      border-radius: 18px;
-    }
     .video {
       margin: 10px;
       border-radius: 10px;
       border: none;
     }
 
+    .container_top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom:  15px;
+    }
+
+    .container_box{
+      box-shadow: 0 0 5px rgb(12, 143, 225), 0 0 7px #fff, 0 0 15px #0073e6, 0 0 7px #0073e6, 0 0 7px #0073e6, 0 0 30px #0073e6, 0 0 5px #0073e6;
+      display: flex;
+      flex-direction: column;
+      background-repeat: no-repeat;
+      justify-content: center;
+      margin-left: 12vw;
+      margin-right: 10vw;
+      border-radius: 18px;
+      width: 75%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      padding: 10px;
+    }
+
+    .container_text{
+        padding: 0%;
+        margin: 4px;
+        color: #fff;
+        text-shadow: 0 0 5px rgb(12, 143, 225), 0 0 7px #fff, 0 0 15px #0073e6, 0 0 7px #0073e6, 0 0 7px #0073e6, 0 0 30px #0073e6, 0 0 5px #0073e6;
     }
 
     select {
@@ -70,13 +90,17 @@
       color: grey
     }
 
-    #binary {
+    #binary,
+    #ctext {
       width: 60%;
       font-size: 20px;
       font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      flex-direction: column;
     }
 
     .btn-submit {
+      margin-top: 15px;
       border: none;
       padding: 8px 32px;
       font-size: 18px;
@@ -101,7 +125,7 @@
       width: 200px;
       border: none;
       background-color: #0073e6;
-      border-radius:12px;
+      border-radius: 12px;
       font-weight: bold;
       text-align: center;
       outline: none;
@@ -128,42 +152,50 @@
       background-color: #353382;
     }
 
-    .footer {
-      margin-top: 3em;
-      text-align: center
-    }
   </style>
 </head>
 
 <body>
   <h4>Line Encoder & Scrambler</h4>
-  <h4 id='title'>
-    </h6>
-    <div class="contained">
-      <div class="container">
+  <h4 id='title'></h4>
+    <div>
+     <div class="container_box">
+
+      <div class="container_top">
         <select id="options">
-          <option value="uniPolarNRZ">UNIpolar NRZ</option>
           <option value="NRZL">NRZ - L</option>
           <option value="NRZI">NRZ - I</option>
           <option value="AMI">Bi polar AMI</option>
-          <option value="PST">Pseudoternary</option>
-          <option value="MLT3">MLT-3</option>
           <option value="diffMan">Differential Manchester</option>
           <option value="MAN">Manchester</option>
           <option value="B8ZS">B8ZS</option>
           <option value="HDB3">HDB3</option>
         </select><br>
+
       </div>
+        <div class="container">
+          <input type="text" id="binary" placeholder="Enter binary sequence"><br><br>
+        </div>
+
+        <div class="container">
+          <h2 class="container_text">OR</h2>
+        </div>
+
+        <div class="container">
+          <input type="number" id="ctext" placeholder="Enter the length of random sequence"><br><br>
+        </div>
+     </div>
+
       <div class="container">
-        <input type="text" id="binary" placeholder="Enter Binary Value"><br><br>
-        <input type="number" id="ctext" placeholder="or Enter a number"><br><br>
         <input class="btn-submit" id="button" type="submit" value="Submit"><br><br>
       </div>
+
     </div>
 
     <canvas id="canvas"></canvas>
-  </br>
-    
+
+    </br>
+
     <button type="button" class="collapsible">
       <span id='arrow' class="fas fa-caret-right" aria-hidden="true"></span>
       <span style="font-size: larger;">Useful Links</span> 
@@ -179,8 +211,15 @@
         </div>
       </ol>
     </div>
+<<<<<<< HEAD
   <script src="./canvas.js"></script>
   <script src="./js/canvas.bundle.js"></script>
   <script src="./js/canvas.bundle.js"></script>
+=======
+    <script src="./canvas.js"></script>
+    <script src="./js/canvas.bundle.js"></script>
+    <script src="./js/canvas.bundle.js"></script>
+>>>>>>> 2f7252be4fe0f79b73e35e831788c5552d2fc40a
 </body>
+
 </html>

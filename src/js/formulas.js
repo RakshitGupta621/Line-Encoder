@@ -1,21 +1,3 @@
-function uniPolarNRZ(c, BINARY, HEIGHT) {
-  c.beginPath();
-  c.lineWidth = 2.5;
-  c.setLineDash([0, 0]);
-  c.strokeStyle = "red";
-  c.moveTo(50, HEIGHT / 2);
-  for (let i = 50, j = 0; j < BINARY.length; i += 50, j++) {
-    if (BINARY.charAt(j) == 1) {
-      c.lineTo(i, HEIGHT / 2 - 50);
-      c.lineTo(i + 50, HEIGHT / 2 - 50);
-    } else {
-      c.lineTo(i, HEIGHT / 2);
-      c.lineTo(i + 50, HEIGHT / 2);
-    }
-  }
-  c.stroke();
-  c.closePath();
-}
 function NRZL(c, BINARY, HEIGHT) {
   c.beginPath();
   c.lineWidth = 2.5;
@@ -27,7 +9,8 @@ function NRZL(c, BINARY, HEIGHT) {
     if (BINARY.charAt(j) == 1) {
       c.lineTo(i, HEIGHT / 2 + 50);
       c.lineTo(i + 50, HEIGHT / 2 + 50);
-    } else {
+    }
+    else {
       c.lineTo(i, HEIGHT / 2 - 50);
       c.lineTo(i + 50, HEIGHT / 2 - 50);
     }
@@ -51,12 +34,14 @@ function NRZI(c, BINARY, HEIGHT) {
       c.lineTo(i + 50, HEIGHT / 2 - 50);
       inverse = false;
       currentlvl = HEIGHT / 2 - 50;
-    } else if (BINARY.charAt(j) == 1 && !inverse) {
+    } 
+    else if (BINARY.charAt(j) == 1 && !inverse) {
       c.lineTo(i, HEIGHT / 2 + 50);
       c.lineTo(i + 50, HEIGHT / 2 + 50);
       inverse = true;
       currentlvl = HEIGHT / 2 + 50;
-    } else {
+    } 
+    else {
       c.lineTo(i + 50, currentlvl);
     }
   }
@@ -77,73 +62,15 @@ function AMI(c, BINARY, HEIGHT) {
       c.lineTo(i, HEIGHT / 2 - 50);
       c.lineTo(i + 50, HEIGHT / 2 - 50);
       inverse = false;
-    } else if (BINARY.charAt(j) == 1 && !inverse) {
+    } 
+    else if (BINARY.charAt(j) == 1 && !inverse) {
       c.lineTo(i, HEIGHT / 2 + 50);
       c.lineTo(i + 50, HEIGHT / 2 + 50);
       inverse = true;
-    } else {
+    } 
+    else {
       c.lineTo(i, HEIGHT / 2);
       c.lineTo(i + 50, HEIGHT / 2);
-    }
-  }
-  c.stroke();
-  c.closePath();
-}
-
-function PST(c, BINARY, HEIGHT) {
-  let inverse = true;
-  c.beginPath();
-  c.lineWidth = 2.5;
-  c.setLineDash([0, 0]);
-  c.strokeStyle = "red";
-  c.moveTo(50, HEIGHT / 2);
-
-  for (let i = 50, j = 0; j < BINARY.length; i += 50, j++) {
-    if (BINARY.charAt(j) == 0 && inverse) {
-      c.lineTo(i, HEIGHT / 2 - 50);
-      c.lineTo(i + 50, HEIGHT / 2 - 50);
-      inverse = false;
-    } else if (BINARY.charAt(j) == 0 && !inverse) {
-      c.lineTo(i, HEIGHT / 2 + 50);
-      c.lineTo(i + 50, HEIGHT / 2 + 50);
-      inverse = true;
-    } else {
-      c.lineTo(i, HEIGHT / 2);
-      c.lineTo(i + 50, HEIGHT / 2);
-    }
-  }
-  c.stroke();
-  c.closePath();
-}
-
-function MLT3(c, BINARY, HEIGHT) {
-  let inverse = true;
-  c.beginPath();
-  c.lineWidth = 2.5;
-  c.setLineDash([0, 0]);
-  c.strokeStyle = "red";
-  c.moveTo(50, HEIGHT / 2);
-  let stage = 0;
-  let currentlvl = HEIGHT / 2;
-  for (let i = 50, j = 0; j < BINARY.length; i += 50, j++) {
-    if (BINARY.charAt(j) == 1 && stage == 0) {
-      c.lineTo(i, HEIGHT / 2 - 50);
-      c.lineTo(i + 50, HEIGHT / 2 - 50);
-      currentlvl = HEIGHT / 2 - 50;
-      stage++;
-    } else if (BINARY.charAt(j) == 1 && stage == 2) {
-      c.lineTo(i, HEIGHT / 2 + 50);
-      c.lineTo(i + 50, HEIGHT / 2 + 50);
-      currentlvl = HEIGHT / 2 + 50;
-      stage = 0;
-    } else if (BINARY.charAt(j) == 1 && stage == 1) {
-      c.lineTo(i, HEIGHT / 2);
-      c.lineTo(i + 50, HEIGHT / 2);
-      currentlvl = HEIGHT / 2;
-      stage++;
-    } else {
-      c.lineTo(i, currentlvl);
-      c.lineTo(i + 50, currentlvl);
     }
   }
   c.stroke();
@@ -168,7 +95,8 @@ function MAN(c, BINARY, HEIGHT) {
       currentlvl = currentlvl * -1;
       c.lineTo(i + 25, HEIGHT / 2 + currentlvl);
       c.lineTo(i + 50, HEIGHT / 2 + currentlvl);
-    } else {
+    } 
+    else {
       currentlvl = -50;
       c.lineTo(i, HEIGHT / 2 + currentlvl);
       c.lineTo(i + 25, HEIGHT / 2 + currentlvl);
@@ -180,6 +108,7 @@ function MAN(c, BINARY, HEIGHT) {
   c.stroke();
   c.closePath();
 }
+
 function diffMan(c, BINARY, HEIGHT) {
   let currentlvl = HEIGHT / 2;
   c.beginPath();
@@ -195,7 +124,8 @@ function diffMan(c, BINARY, HEIGHT) {
       currentlvl = currentlvl * -1;
       c.lineTo(i + 25, HEIGHT / 2 + currentlvl);
       c.lineTo(i + 50, HEIGHT / 2 + currentlvl);
-    } else {
+    } 
+    else {
       currentlvl = currentlvl * -1;
       c.lineTo(i, HEIGHT / 2 + currentlvl);
       c.lineTo(i + 25, HEIGHT / 2 + currentlvl);
@@ -223,7 +153,8 @@ function B8ZS(c, BINARY, HEIGHT) {
       currentlvl *= -1;
       c.lineTo(i, HEIGHT / 2 + currentlvl);
       c.lineTo(i + 50, HEIGHT / 2 + currentlvl);
-    } else {
+    } 
+    else {
       for (let index = j; index < BINARY.length; index++) {
         if (BINARY.charAt(index) == 1) break;
         else zeroCount++;
@@ -250,7 +181,8 @@ function B8ZS(c, BINARY, HEIGHT) {
         c.lineTo(i + 400, HEIGHT / 2);
         i += 350;
         j += 7;
-      } else {
+      } 
+      else {
         c.lineTo(i, HEIGHT / 2);
         c.lineTo(i + 50, HEIGHT / 2);
       }
@@ -278,8 +210,8 @@ function HDB3(c, BINARY, HEIGHT) {
       currentlvl *= -1;
       c.lineTo(i, HEIGHT / 2 + currentlvl);
       c.lineTo(i + 50, HEIGHT / 2 + currentlvl);
-    } else {
-
+    } 
+    else {
       for (let index = j; index < BINARY.length; index++) {
         if (BINARY.charAt(index) == 1 || zeroCount == 4) break;
         else zeroCount++;
@@ -294,14 +226,16 @@ function HDB3(c, BINARY, HEIGHT) {
         c.lineTo(i + 200, HEIGHT / 2 + currentlvl);
         i += 150;
         j += 3;
-      } else if (zeroCount == 4 && oneCount % 2 != 0) {
+      } 
+      else if (zeroCount == 4 && oneCount % 2 != 0) {
         c.lineTo(i, HEIGHT / 2);
         c.lineTo(i + 150, HEIGHT / 2);
         c.lineTo(i + 150, HEIGHT / 2 + currentlvl);
         c.lineTo(i + 200, HEIGHT / 2 + currentlvl);
         i += 150;
         j += 3;
-      } else {
+      } 
+      else {
         c.lineTo(i, HEIGHT / 2);
         c.lineTo(i + 50, HEIGHT / 2);
       }
@@ -312,10 +246,11 @@ function HDB3(c, BINARY, HEIGHT) {
   c.stroke();
   c.closePath();
 }
+
 function selectMethod(method, c, BINARY, HEIGHT) {
   switch (method) {
-    case "uniPolarNRZ":
-      uniPolarNRZ(c, BINARY, HEIGHT);
+    case "NRZL":
+      NRZL(c, BINARY, HEIGHT);
       break;
     case "NRZI":
       NRZI(c, BINARY, HEIGHT);
@@ -332,16 +267,6 @@ function selectMethod(method, c, BINARY, HEIGHT) {
     case "B8ZS":
       B8ZS(c, BINARY, HEIGHT);
       break;
-    case "NRZL":
-      NRZL(c, BINARY, HEIGHT);
-      break;
-    case "PST":
-      PST(c, BINARY, HEIGHT);
-      break;
-    case "MLT3":
-      MLT3(c, BINARY, HEIGHT);
-      break;
-
     case "HDB3":
       HDB3(c, BINARY, HEIGHT);
       break;
