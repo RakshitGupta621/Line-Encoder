@@ -20,7 +20,7 @@
 
 1.  Clone the repository:
 
-        git clone https://github.com/nur-zaman/digital-signal-visualizer.git
+        git clone https://github.com/RakshitGupta621/Line-Encoder.git
 
 2.  Install dependencies:
 
