@@ -18,6 +18,8 @@
 
 ### Procedure to test it on your system
 
+#### First install the latest version of Node: (https://nodejs.org/en/)
+
 1.  Clone the repository:
 
         git clone https://github.com/RakshitGupta621/Line-Encoder.git
