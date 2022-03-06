@@ -3,7 +3,7 @@
 #### Implement Line coding encoder and scrambler with digital data generator.
 
 - Created Line encoder and scrambler with digital data generator.
-- Can enter the binary sequence or generate random sequence of data.
+- Can enter the binary sequence or generate a random sequence of data.
 - Used Javascript, HTML Canvas, and CSS for building the logic and UI.
 - Line coding schemes implemented: NRZ-L, NRZ-I, Manchester, Differential Manchester, AMI.
 - Scrambling schemes implemented B8ZS, HDB3.
